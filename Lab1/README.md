@@ -7,9 +7,6 @@ and exercise text are retained. Added overrides correct the demonstration
 settings and CPU device typo; the original `NotImplementedError` placeholders
 and original checkpoint-load statement are retained but bypassed.
 
-A local `cifar100-pruning-lab` reference (intentionally excluded) inspired the experiment organization,
-saved-split protocol, and validation-based selection policy. Its models,
-measurements, report, and architecture are not used as results of this solution.
 
 ## Environment
 

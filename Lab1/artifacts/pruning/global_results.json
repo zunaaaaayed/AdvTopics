@@ -1,0 +1,44 @@
+[
+  {
+    "requested_sparsity": 0.0,
+    "actual_sparsity": 0.0,
+    "validation_accuracy": 0.7361,
+    "validation_loss": 1.0784539737701415,
+    "checkpoint": "global_0.0.pt"
+  },
+  {
+    "requested_sparsity": 0.2,
+    "actual_sparsity": 0.19999995781049995,
+    "validation_accuracy": 0.7357,
+    "validation_loss": 1.0792231788635254,
+    "checkpoint": "global_0.2.pt"
+  },
+  {
+    "requested_sparsity": 0.4,
+    "actual_sparsity": 0.3999999156209999,
+    "validation_accuracy": 0.7342,
+    "validation_loss": 1.0777120184898377,
+    "checkpoint": "global_0.4.pt"
+  },
+  {
+    "requested_sparsity": 0.6,
+    "actual_sparsity": 0.6000000843790001,
+    "validation_accuracy": 0.7206,
+    "validation_loss": 1.094593155670166,
+    "checkpoint": "global_0.6.pt"
+  },
+  {
+    "requested_sparsity": 0.8,
+    "actual_sparsity": 0.8000000421895,
+    "validation_accuracy": 0.6211,
+    "validation_loss": 1.7871693279266356,
+    "checkpoint": "global_0.8.pt"
+  },
+  {
+    "requested_sparsity": 0.9,
+    "actual_sparsity": 0.8999999156209999,
+    "validation_accuracy": 0.2193,
+    "validation_loss": 3.5786124973297118,
+    "checkpoint": "global_0.9.pt"
+  }
+]

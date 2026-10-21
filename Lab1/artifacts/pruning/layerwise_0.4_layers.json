@@ -1,0 +1,24 @@
+{
+  "sparsity": 0.3999999156209999,
+  "zeros": 1896206,
+  "parameters": 4740516,
+  "layers": {
+    "features.0": 0.40011160714285715,
+    "features.1": 0.40625,
+    "features.3": 0.4000216637781629,
+    "features.4": 0.40625,
+    "features.7": 0.3999945840554593,
+    "features.8": 0.3984375,
+    "features.10": 0.399995934518647,
+    "features.11": 0.3984375,
+    "features.14": 0.3999993224197745,
+    "features.15": 0.3984375,
+    "features.17": 0.4,
+    "features.18": 0.3984375,
+    "features.21": 0.4,
+    "features.22": 0.400390625,
+    "features.24": 0.39999991524734213,
+    "features.25": 0.400390625,
+    "classifier": 0.4
+  }
+}

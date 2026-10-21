@@ -1,0 +1,9 @@
+[
+  {
+    "requested_sparsity": 0.2,
+    "actual_sparsity": 0.2000001687580002,
+    "validation_accuracy": 0.0744,
+    "validation_loss": 5.426872312927246,
+    "checkpoint": "exercise1_0.2.pt"
+  }
+]

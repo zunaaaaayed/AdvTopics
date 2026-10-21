@@ -1,0 +1,49 @@
+{
+  "exercise": "all",
+  "baseline": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/artifacts/baseline/best_model_params.pt",
+  "split": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/artifacts/baseline/train_val_split.pt",
+  "data_dir": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/data",
+  "output_dir": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/artifacts/pruning",
+  "global_dir": null,
+  "seed": 42,
+  "batch_size": 128,
+  "ratios": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    0.9
+  ],
+  "finetune_epochs": 5,
+  "finetune_lr": 0.01,
+  "iterations": 5,
+  "iterative_amount": 0.2,
+  "accuracy_drop": 0.01,
+  "download": false,
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA RTX 4000 Ada Generation",
+    "packages": {
+      "numpy": "2.2.4",
+      "pillow": "12.3.0",
+      "torchmetrics": "1.9.0",
+      "matplotlib": "3.10.1"
+    },
+    "source_sha256": {
+      "model.py": "e8894d0412a1aad80e8c3cb09a2e85a7b134f6f7e95fc9e19e3fe6f89a5b15e6",
+      "train.py": "f84f224fdaccf240277a7c84740d5813e7748ffebff64e634f5bec27f86b4e33",
+      "pruning.py": "a6719b8674ae197556deb6d4bad6a2705953cfa1f408788fc326f63787f6c5c8"
+    }
+  },
+  "baseline_validation": {
+    "loss": 1.0784539737701415,
+    "accuracy": 0.7361
+  },
+  "checkpoint_sha256": "d1d2732a9b3d7253dabfcfa9fdc063b5b82abdd6591b6040cb6cb489edb08b96",
+  "split_sha256": "4c07845bd99c4b3c5a32247d7dc8a48a0ae028038115c0488ac5dc6f2af6f445",
+  "pruned_parameters": "Conv2d, Linear and BatchNorm2d weights and biases"
+}

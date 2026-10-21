@@ -1,0 +1,2 @@
+requested_sparsity,actual_sparsity,validation_accuracy,validation_loss,checkpoint
+0.2,0.2000001687580002,0.0744,5.426872312927246,exercise1_0.2.pt

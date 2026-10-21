@@ -1,0 +1,1 @@
+Lab1/artifacts/**/*.pt filter=lfs diff=lfs merge=lfs -text

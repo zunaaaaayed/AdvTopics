@@ -1,0 +1,14 @@
+{
+  "allowed_accuracy_drop": 0.01,
+  "selected": {
+    "requested_sparsity": 0.5903999999999999,
+    "actual_sparsity": 0.590400074591036,
+    "validation_accuracy": 0.7265,
+    "validation_loss": 1.0714734867095947,
+    "checkpoint": "iterative_step_4.pt"
+  },
+  "policy": "Highest measured sparsity within the allowed baseline accuracy drop",
+  "comment": "Retain iterative_step_4.pt: validation accuracy 0.7265, actual sparsity 0.5904.",
+  "best_measured_accuracy": 0.7361,
+  "best_accuracy_sparsity": 0.0
+}

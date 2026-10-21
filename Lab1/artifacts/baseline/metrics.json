@@ -1,0 +1,7 @@
+{
+  "best_validation_accuracy": 0.7361,
+  "test": {
+    "loss": 1.061901381111145,
+    "accuracy": 0.7323
+  }
+}

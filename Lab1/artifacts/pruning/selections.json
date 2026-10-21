@@ -1,0 +1,58 @@
+{
+  "layerwise": {
+    "allowed_accuracy_drop": 0.01,
+    "selected": {
+      "requested_sparsity": 0.0,
+      "actual_sparsity": 0.0,
+      "validation_accuracy": 0.7361,
+      "validation_loss": 1.0784539737701415,
+      "checkpoint": "layerwise_0.0.pt"
+    },
+    "policy": "Highest measured sparsity within the allowed baseline accuracy drop",
+    "comment": "Retain layerwise_0.0.pt: validation accuracy 0.7361, actual sparsity 0.0000.",
+    "best_measured_accuracy": 0.7361,
+    "best_accuracy_sparsity": 0.0
+  },
+  "global": {
+    "allowed_accuracy_drop": 0.01,
+    "selected": {
+      "requested_sparsity": 0.4,
+      "actual_sparsity": 0.3999999156209999,
+      "validation_accuracy": 0.7342,
+      "validation_loss": 1.0777120184898377,
+      "checkpoint": "global_0.4.pt"
+    },
+    "policy": "Highest measured sparsity within the allowed baseline accuracy drop",
+    "comment": "Retain global_0.4.pt: validation accuracy 0.7342, actual sparsity 0.4000.",
+    "best_measured_accuracy": 0.7361,
+    "best_accuracy_sparsity": 0.0
+  },
+  "finetuned": {
+    "allowed_accuracy_drop": 0.01,
+    "selected": {
+      "requested_sparsity": 0.6,
+      "actual_sparsity": 0.6000000843790001,
+      "validation_accuracy": 0.7277,
+      "validation_loss": 1.0722745094299317,
+      "checkpoint": "finetuned_0.6.pt"
+    },
+    "policy": "Highest measured sparsity within the allowed baseline accuracy drop",
+    "comment": "Retain finetuned_0.6.pt: validation accuracy 0.7277, actual sparsity 0.6000.",
+    "best_measured_accuracy": 0.7361,
+    "best_accuracy_sparsity": 0.0
+  },
+  "iterative": {
+    "allowed_accuracy_drop": 0.01,
+    "selected": {
+      "requested_sparsity": 0.5903999999999999,
+      "actual_sparsity": 0.590400074591036,
+      "validation_accuracy": 0.7265,
+      "validation_loss": 1.0714734867095947,
+      "checkpoint": "iterative_step_4.pt"
+    },
+    "policy": "Highest measured sparsity within the allowed baseline accuracy drop",
+    "comment": "Retain iterative_step_4.pt: validation accuracy 0.7265, actual sparsity 0.5904.",
+    "best_measured_accuracy": 0.7361,
+    "best_accuracy_sparsity": 0.0
+  }
+}

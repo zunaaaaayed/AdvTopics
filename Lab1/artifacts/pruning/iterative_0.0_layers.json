@@ -1,0 +1,24 @@
+{
+  "sparsity": 0.0,
+  "zeros": 0,
+  "parameters": 4740516,
+  "layers": {
+    "features.0": 0.0,
+    "features.1": 0.0,
+    "features.3": 0.0,
+    "features.4": 0.0,
+    "features.7": 0.0,
+    "features.8": 0.0,
+    "features.10": 0.0,
+    "features.11": 0.0,
+    "features.14": 0.0,
+    "features.15": 0.0,
+    "features.17": 0.0,
+    "features.18": 0.0,
+    "features.21": 0.0,
+    "features.22": 0.0,
+    "features.24": 0.0,
+    "features.25": 0.0,
+    "classifier": 0.0
+  }
+}

@@ -218,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Lab assignment: local references, downloads and machine-specific state
+cifar100-pruning-lab/
+Lab1/data/
+.DS_Store
+.codex/
+.agents/
+.aws/
+
+# Preserve the experiment logs for the professor.
+!Lab1/artifacts/**/*.log

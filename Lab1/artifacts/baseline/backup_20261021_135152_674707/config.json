@@ -1,0 +1,34 @@
+{
+  "epochs": 200,
+  "batch_size": 128,
+  "lr": 0.1,
+  "seed": 42,
+  "data_dir": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/data",
+  "output_dir": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/artifacts/baseline",
+  "download": true,
+  "evaluate_only": false,
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA RTX 4000 Ada Generation",
+    "packages": {
+      "numpy": "2.2.4",
+      "pillow": "12.3.0",
+      "torchmetrics": "1.9.0",
+      "matplotlib": "3.10.1"
+    },
+    "source_sha256": {
+      "model.py": "e8894d0412a1aad80e8c3cb09a2e85a7b134f6f7e95fc9e19e3fe6f89a5b15e6",
+      "train.py": "2a064d6dbff827b1c6cffc2eb07d767888f7d6d74b6a0461f0837916f51fd2f6",
+      "pruning.py": "a6719b8674ae197556deb6d4bad6a2705953cfa1f408788fc326f63787f6c5c8"
+    }
+  },
+  "architecture": "ConvNet: VGG-style, 8 convolutions, 3 pooling layers",
+  "optimizer": "SGD",
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "scheduler": "CosineAnnealingLR",
+  "split": "/autofs/unitytravail/travail/mdzislam/adv/lab1/files/artifacts/baseline/train_val_split.pt"
+}

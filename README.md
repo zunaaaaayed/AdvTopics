@@ -20,10 +20,3 @@ git lfs pull
 Use Python 3.13 and follow `Lab1/README.md` for installation, dataset download,
 evaluation and reproduction. Downloaded data and virtual environments are
 excluded. The friend's `cifar100-pruning-lab` reference folder is not included.
-
-## Lab 1 report
-
-[Read the report (PDF)](Lab1/report/Md_Zunayedul_Islam_Model_Pruning.pdf) or
-[browse the LaTeX source](Lab1/report/main.tex).
-The report uses Times New Roman, is titled **Lab 1: Pruning**, and ends with
-its references. Figures, data-driven tables and build instructions accompany it.

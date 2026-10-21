@@ -1,0 +1,3 @@
+# Generated LaTeX auxiliaries; keep the final PDF, figures and tables.
+build/
+*.synctex.gz

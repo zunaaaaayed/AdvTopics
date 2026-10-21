@@ -203,3 +203,11 @@ Seed 42, zero data-loader workers and deterministic PyTorch algorithms are used.
 Repeat runs with the same software and hardware; bitwise identity across
 versions, devices, or CPU/GPU execution is not promised. Preserve the saved
 split, weights, configs and source together when submitting to the professor.
+
+## Report
+
+The completed report is available as
+[PDF](report/Md_Zunayedul_Islam_Model_Pruning.pdf) and
+[LaTeX source](report/main.tex). It uses Times New Roman and includes the measured
+results, plots, model-selection discussion, and recovery provenance.
+See [report build instructions](report/README.md) to regenerate it.

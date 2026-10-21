@@ -278,11 +278,27 @@ Global pruning preserves accuracy much better: at 20\% it retains 73.57\%, compa
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.96\linewidth]{layer_sparsity.pdf}
-\caption{Per-layer sparsity of the selected global 40\% model and the final 60\% sparse fine-tuned model. Weight and bias entries are counted together. Detailed per-layer values are saved with both checkpoints.}
+\caption{Per-layer sparsity of the selected global 40\% model and the final 60\% sparse fine-tuned model. Weight and bias entries are counted together. Numerical values appear in Table~\ref{tab:layer-sparsities}.}
 \label{fig:layers}
 \end{figure}
 
 At 40\% overall sparsity, the last convolution has 59.26\% zero entries, whereas the first convolution has 14.73\% and the classifier has 6.15\%. Most batch-normalisation layers remain entirely nonzero. This supports the interpretation that a uniform per-tensor quota removes relatively important entries from small tensors, while a global quota can concentrate many zeros in large late convolutions. Nevertheless, magnitude scales differ between layer types; the observed success of global pruning does not establish that cross-layer magnitude is an ideal universal importance measure.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Numerical sparsity of every parameterised layer, rounded to two decimal places. The Global 40\% column answers Exercise~3 for its selected model; the Final 60\% column provides the comparison with the fine-tuned model selected in Exercise~4. Counts include weights and biases, but exclude running statistics. Values come from the saved per-layer JSON files.}
+\label{tab:layer-sparsities}
+\begin{tabular}{llrrr}
+\toprule
+Layer & Type & Parameters & Global 40\% & Final 60\% \\
+\midrule
+\tabledata{layer_rows}
+\midrule
+Overall & & \NParameters & 40.00\% & 60.00\% \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Exercise 4: Re-training a Pruned Model}
 

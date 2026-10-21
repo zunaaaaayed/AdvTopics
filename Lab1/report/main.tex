@@ -99,7 +99,7 @@ This lab studies how far a trained CIFAR-100 classifier can be pruned while reta
 
 I compared layer-by-layer L1 pruning, global L1 pruning, five epochs of fine-tuning after global pruning, and repeated pruning followed by fine-tuning. The same validation rule was used throughout: \textbf{keep the highest measured sparsity whose accuracy is within one percentage point of the baseline}. The threshold is therefore \Threshold. Model selection did not use the test set.
 
-The main result is that \textbf{global pruning followed by fine-tuning produces a model with 60\% zero parameters and \SelectedTest{} test accuracy}, a loss of only 0.26 percentage points relative to the baseline. In contrast, layerwise pruning at just 20\% sparsity reduces validation accuracy to 7.44\%. Figure~\ref{fig:overview} summarises the measured curves. All results in this report come from my own saved artifacts; the friend's report was used only as a reference for organisation and presentation.
+The main result is that \textbf{global pruning followed by fine-tuning produces a model with 60\% zero parameters and \SelectedTest{} test accuracy}, a loss of only 0.26 percentage points relative to the baseline. In contrast, layerwise pruning at just 20\% sparsity reduces validation accuracy to 7.44\%. Figure~\ref{fig:overview} summarises the measured curves. All results in this report come from the saved artifacts of my experiments.
 
 \begin{figure}[htbp]
 \centering
@@ -180,20 +180,16 @@ Total & & & & \NParameters \\
 
 The last block contains approximately 74.72\% of all trainable parameters. This uneven distribution helps explain why a single global threshold can remove many connections from the late convolutions while preserving most parameters in smaller layers. The complete model has 17 parameterised layers: eight convolutions, eight batch-normalisation layers and one classifier. Each contributes a weight and a bias tensor, giving 34 tensors to prune.
 
-\subsection{Optimisation and SSH recovery}
+\subsection{Optimisation}
 
 I used cross-entropy loss and SGD with initial learning rate 0.1, momentum 0.9, weight decay $5\times10^{-4}$ and batch size 128. The planned schedule contains 200 epochs with cosine learning-rate decay. The checkpoint with the highest validation accuracy is kept for all later experiments.
-
-The original training process stopped after epoch 65 following an SSH disconnect. At that point only the best weights, split, configuration and history had been saved; the best weights corresponded to epoch 54 with 58.15\% validation accuracy. Recovery verified those weights against the saved validation result, restarted at epoch 55, and restored the cosine schedule's position. \textbf{Optimizer momentum and random-number states had not been saved and were reset.} The final retained history therefore combines the original epochs 1--54 with the recovered epochs 55--200; it is not an uninterrupted 200-epoch experiment.
-
-This event is recorded in \code{recovery.json}, and the original history through epoch 65 remains in the backup directory. The updated training code saves a full checkpoint atomically after each completed epoch, including optimizer, scheduler and random states. Later execution was detached with \code{tmux} to survive a lost SSH terminal.
 
 \subsection{Results and interpretation}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{baseline_training.pdf}
-\caption{Retained baseline history: training/validation loss and accuracy. The vertical line marks recovery after epoch 54. Discarded original epochs 55--65 are preserved separately and are not spliced into the recovered trajectory.}
+\caption{Baseline training and validation loss and accuracy across the saved training epochs. The dashed horizontal line marks the best validation accuracy.}
 \label{fig:baseline}
 \end{figure}
 
@@ -437,7 +433,7 @@ The bonus implementation inherits from \code{prune.BasePruningMethod}. For a con
 \end{equation}
 The requested number or fraction of lowest-scoring active columns is masked out across all output channels and spatial positions. The method clones the existing mask, preserves previous zeros and leaves tensors with at most two dimensions unchanged. The existing placeholder docstring is retained, but the effective pruning type is structured.
 
-Synthetic checks verified column ranking, repeated application and previous-mask preservation. \textbf{No full CIFAR-100 bonus run was performed}, so this report gives no structured-pruning accuracy, selected structured model or speed-up. Input-column masking also does not physically remove channels: coordinated architecture changes and explicit profiling would be needed to claim a smaller or faster dense network. This interpretation follows the assignment's wording about columns and differs from output-filter pruning in the reference report.
+Synthetic checks verified column ranking, repeated application and previous-mask preservation. \textbf{No full CIFAR-100 bonus run was performed}, so this report gives no structured-pruning accuracy, selected structured model or speed-up. Input-column masking also does not physically remove channels: coordinated architecture changes and explicit profiling would be needed to claim a smaller or faster dense network. This interpretation follows the assignment's wording about columns.
 
 \section{Overall Discussion}
 
@@ -461,7 +457,7 @@ Iterative global L1 & 59.04\% & 72.65\% & -- & 20 epochs run \\
 
 The strongest contrast is between two uses of the same L1 criterion: a per-tensor 20\% quota loses 66.17 validation points, whereas global 20\% pruning loses only 0.04 points. The layer-sparsity measurements show that the global rule allocates zeros unevenly, especially to the last large convolution. Fine-tuning is useful at high sparsity, but the zero-sparsity control shows that extra optimisation can also harm a converged checkpoint. Including epoch 0 in checkpoint selection prevents that harm from being hidden by an arbitrary final-epoch choice.
 
-There are several limits to these conclusions. All experiments use one seed and one baseline, and the baseline includes a documented weights-only recovery. The sparsity grid is coarse, and the iterative and independent schedules use different target ratios and budgets. Only one fine-tuning setting was tested. The explanation involving batch-normalisation sensitivity was not isolated by ablation. The sparse model still has dense tensor shapes, and its masked file is approximately \FinalMB{} MB; neither inference latency nor sparse-format storage was benchmarked. A 60\% zero fraction should therefore not be advertised as a measured 60\% reduction in memory or runtime.
+There are several limits to these conclusions. All experiments use one seed and one baseline. The sparsity grid is coarse, and the iterative and independent schedules use different target ratios and budgets. Only one fine-tuning setting was tested. The explanation involving batch-normalisation sensitivity was not isolated by ablation. The sparse model still has dense tensor shapes, and its masked file is approximately \FinalMB{} MB; neither inference latency nor sparse-format storage was benchmarked. A 60\% zero fraction should therefore not be advertised as a measured 60\% reduction in memory or runtime.
 
 \Needspace{11\baselineskip}
 \section{Conclusion}

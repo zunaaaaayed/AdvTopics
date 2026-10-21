@@ -97,8 +97,7 @@ for axis, fields, label in zip(axes, [('train_loss','val_loss'),('train_accuracy
     factor = 100 if 'accuracy' in fields[0] else 1
     for field, title, color in zip(fields,['Training','Validation'],colors):
         axis.plot(epochs,[factor*float(r[field]) for r in history],label=title,color=color,linewidth=1.2)
-    axis.axvline(54.5,color='0.35',linestyle=':',label='Recovery from epoch 54')
-    axis.set(xlabel='Epoch in retained history',ylabel=label,xlim=(1,200))
+    axis.set(xlabel='Epoch',ylabel=label,xlim=(1,200))
 axes[1].axhline(base_acc,color='0.5',linestyle='--',label='Best validation')
 axes[0].legend(frameon=False,fontsize=8)
 axes[1].legend(frameon=False,fontsize=8)

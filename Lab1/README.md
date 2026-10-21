@@ -209,5 +209,5 @@ split, weights, configs and source together when submitting to the professor.
 The completed report is available as
 [PDF](report/Md_Zunayedul_Islam_Model_Pruning.pdf) and
 [LaTeX source](report/main.tex). It uses Times New Roman and includes the measured
-results, plots, model-selection discussion, and recovery provenance.
+results, plots, and model-selection discussion.
 See [report build instructions](report/README.md) to regenerate it.

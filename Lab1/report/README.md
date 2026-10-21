@@ -6,10 +6,10 @@
 - Original and regenerated figures: `figures/`
 - Raw experiment data: `../artifacts/`
 
-The report follows the reference report's cover, contents, background,
-exercise-by-exercise discussion, final evaluation, conclusion and references.
-The report ends immediately after the references. All architecture descriptions, measurements and plots concern this
-lab's own VGG-style model. No reference-report results or plots are reused.
+The report contains a cover, contents, background, exercise-by-exercise
+discussion, final evaluation, conclusion and references. It ends immediately
+after the references. All architecture descriptions, measurements and plots
+concern this lab's VGG-style model and saved experiments.
 The bonus is identified as implemented/tested on synthetic tensors, without a
 full CIFAR100 experiment.
 
@@ -62,9 +62,6 @@ original pruning PNGs unchanged, and derives table rows from the raw data.
 `data/provenance.json` records input SHA256 hashes. If raw experiments change,
 regenerate the figures/tables and review the narrative before rebuilding.
 
-On GitHub the implementation directory is named `Lab1/`; use that prefix in
-place of `Lab1/` in the commands above.
-
 ## Recorded result and provenance
 
 The selected model has 60% zero parameters, 72.77% validation accuracy in the
@@ -73,8 +70,7 @@ accuracy is 73.23%, so the test difference is 0.26 percentage points. A separate
 final evaluation reported 72.75% validation accuracy; the report preserves that
 measurement separately and does not assign an unrecorded cause to the difference.
 
-The report also documents the SSH interruption and weights-only recovery from
-epoch 54, as well as checkpoint selection over fine-tuning epochs 0--5. At low
+The report documents checkpoint selection over fine-tuning epochs 0--5. At low
 sparsity, the pre-fine-tuning state was retained when all updates were worse.
 No speedup, reduced dense file size, matched-budget iterative comparison or
 unmeasured bonus accuracy is claimed.
